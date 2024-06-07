@@ -7,7 +7,7 @@
 **Nykaa is one of India's leading e-commerce platforms offering a wide range of products.**
 
 ## Deployment Links
-- [Frontend Deployment](https://xyz.vercel.app/)
+- [Frontend Deployment]([https://xyz.vercel.app/](https://nykaa-clone-react-mihir-chi.vercel.app/#))
 
 ## Tech Stack
 
