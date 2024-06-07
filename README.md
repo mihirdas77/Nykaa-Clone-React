@@ -5,7 +5,7 @@
 </div> -->
 
 **Nykaa is one of India's leading e-commerce platforms offering a wide range of products.**<br>
-<!--[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mihirdas77/Nykaa-Clone-React.svg)](https://github.com/mihirdas77/Nykaa-Clone-React.git)-->
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mihirdas77/Nykaa-Clone-React.svg)](https://github.com/mihirdas77/Nykaa-Clone-React.git)
 ## Deployment Links
 - Frontend Deployment [Click](https://nykaa-clone-react-mihir-chi.vercel.app/)
 
