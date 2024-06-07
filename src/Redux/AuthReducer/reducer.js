@@ -1,7 +1,7 @@
 import { SET_USER_LOGIN, SET_USER_NAVBAR } from './actionTypes';
 
 const initialState = {
-  login: false,
+  login: true,
   navbar:true
 };
 
