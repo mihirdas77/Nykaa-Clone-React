@@ -1,8 +1,8 @@
 # Nykaa Clone
 
-<div style="display: flex; justify-content: center; align-items: center;">
+<!-- <div style="display: flex; justify-content: center; align-items: center;">
   <img style="border-radius: 10px" src="https://cdn.iconscout.com/icon/free/png-256/free-nykaa-3384872-2822953.png?f=webp&w=256" alt="Nykaa logo">
-</div>
+</div> -->
 
 **Nykaa is one of India's leading e-commerce platforms offering a wide range of products.**
 
