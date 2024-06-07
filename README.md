@@ -24,7 +24,7 @@
 
 ### Frontend
 - Home page
-- Login (Firebase) | Signup page | Logout
+- Login (Firebase) | Signup page | Logout {These featured will run when you open the code in any code editor}
 - Product Page
 - Cart Page 
 - Search Functionality
