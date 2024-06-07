@@ -4,10 +4,10 @@
   <img style="border-radius: 10px" src="https://cdn.iconscout.com/icon/free/png-256/free-nykaa-3384872-2822953.png?f=webp&w=256" alt="Nykaa logo">
 </div> -->
 
-**Nykaa is one of India's leading e-commerce platforms offering a wide range of products.**
-
+**Nykaa is one of India's leading e-commerce platforms offering a wide range of products.**<br>
+<!--[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mihirdas77/Nykaa-Clone-React.svg)](https://github.com/mihirdas77/Nykaa-Clone-React.git)-->
 ## Deployment Links
-- [Frontend Deployment]([https://xyz.vercel.app/](https://nykaa-clone-react-mihir-chi.vercel.app/#))
+- Frontend Deployment [Click](https://nykaa-clone-react-mihir-chi.vercel.app/)
 
 ## Tech Stack
 
