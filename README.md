@@ -24,11 +24,19 @@
 
 ### Frontend
 - Home page
-- Login (Firebase) | Signup page | Logout {These featured will run when you open the code in any code editor}
-- Product Page
-- Cart Page 
-- Search Functionality
-- Payment Page
+  ![ScreenShot currently unavailable](https://i.postimg.cc/3J5c7Hjm/home.png)<br><br>
+- Login (Firebase) | Signup page | Logout {These featured will run when you open the code in any code editor}<br>
+  ![ScreenShot currently unavailable](https://i.postimg.cc/nV733P8z/signup.png)<br><br>
+- Product Page<br>
+  ![ScreenShot currently unavailable](https://i.postimg.cc/d0LBrWmJ/product.png)<br><br>
+- Cart Page<br>
+  ![ScreenShot currently unavailable](https://i.postimg.cc/3wVZBgnm/add-to-cart.png) <br><br>
+- Address Update Page<br>
+  ![ScreenShot currently unavailable](https://i.postimg.cc/66dhr4R4/location.png)<br><br>
+- Payment Page<br>
+  ![ScreenShot currently unavailable](https://i.postimg.cc/ZK4xVYF7/payment.png)<br><br>
+- Order Confirmation Page<br>
+  ![ScreenShot currently unavailable](https://i.postimg.cc/bwvHf651/confirm.png)
 
 ### Backend
 - Product data management
