@@ -37,7 +37,7 @@
   ![ScreenShot currently unavailable](https://i.postimg.cc/ZK4xVYF7/payment.png)<br><br>
 - Order Confirmation Page<br>
   ![ScreenShot currently unavailable](https://i.postimg.cc/bwvHf651/confirm.png)<br><br>
-- Order Confirmation Page<br>
+- Footer Part<br>
   ![ScreenShot currently unavailable](https://i.postimg.cc/y8wJpvC1/Screenshot-2024-06-07-195550.png)
 
 ### Backend
