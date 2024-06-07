@@ -25,7 +25,7 @@
 ### Frontend
 - Home page
   ![ScreenShot currently unavailable](https://i.postimg.cc/3J5c7Hjm/home.png)<br><br>
-- Login (Firebase) | Signup page | Logout {These featured will run when you open the code in any code editor}<br>
+- Login (Firebase) | Signup page | Logout {These featured will run when you open the code and run in any code editor}<br>
   ![ScreenShot currently unavailable](https://i.postimg.cc/nV733P8z/signup.png)<br><br>
 - Product Page<br>
   ![ScreenShot currently unavailable](https://i.postimg.cc/d0LBrWmJ/product.png)<br><br>
