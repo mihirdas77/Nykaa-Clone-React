@@ -14,7 +14,7 @@
 
 **Client:** React.js | Redux | Chakra UI 
 
-**Server:** Node.js | Express.js | MongoDB  
+<!-- **Server:** Node.js | Express.js | MongoDB  -->
 
 **Tools:** 
 - GitHub: Repository and version control.
