@@ -27,7 +27,7 @@
 - **Home Page**  
   ![Home Page](https://i.postimg.cc/3J5c7Hjm/home.png)
   
-- **Login (Firebase) | Signup | Logout**  
+- **Login (Firebase) | Signup page | Logout {These featured will run when you open the code and run in any code editor}**  
   ![Signup Page](https://i.postimg.cc/nV733P8z/signup.png)
   
 - **Product Page**  
