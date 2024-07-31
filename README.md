@@ -18,7 +18,7 @@
 
 **Tools:** 
 - GitHub: Repository and version control.
-- VS Code: Development environment for React.js, CSS, Node.js, and Express.js.
+- VS Code: Development environment for React.js, CSS, JavaScript.
 - Browsers: Microsoft Edge, Google Chrome, Mozilla Firefox for functionality testing.
 
 ## ✨ Features
