@@ -12,9 +12,7 @@
 
 ## 🛠️ Tech Stack
 
-**Client:** React.js | Redux | Chakra UI 
-
-<!-- **Server:** Node.js | Express.js | MongoDB  -->
+**Client:** React.js | JavaScript | Chakra UI 
 
 **Tools:** 
 - GitHub: Repository and version control.
