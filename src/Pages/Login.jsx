@@ -89,10 +89,10 @@ const Login = () => {
 // Styled-components for styling
 const Container = styled.div`
   width: 100%;
-  background-color: #f3f3f3;
-  height: 803px;
-  padding-top: 50px;
-  position: relative;
+  background-image: url('https://wallpapercave.com/wp/wp13713411.jpg');
+  
+  height: 710px;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +100,7 @@ const Container = styled.div`
 
 const LoginForm = styled.form`
   width: 400px;
-  height: 400px;
+  height: auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
   background-color: white;
