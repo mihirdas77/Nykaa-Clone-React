@@ -199,8 +199,8 @@ export const Navbar = () => {
                         <div className='signup'>
                             {
                                 !userLogin ? <div>
-                                    <button className='signIn'><FontAwesomeIcon icon={faUser}  /></button>
-                                    <div className="mega-box2">
+                                    <button className='signIn'  onClick={() => navigate('/login')}><FontAwesomeIcon icon={faUser}  /> Login</button>
+                                    {/* <div className="mega-box2">
                                         <div className="content">
 
                                             <div className="row">
@@ -211,28 +211,28 @@ export const Navbar = () => {
 
                                                 </div>
                                                 <br />
-                                                {/* <div>
+                                                <div>
                                                     <button>Sign in with Google</button>
-                                                </div> */}
+                                                </div>
 
 
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div> :
                                     <div className='btn'>
-                                        <button  ><FontAwesomeIcon icon={faUser} />User</button>
-                                        <div className="mega-box3">
+                                        <button className='logout' onClick={() => dispatch(setUserLogin(false))}  ><FontAwesomeIcon icon={faPowerOff} /> Logout</button>
+                                        {/* <div className="mega-box3">
                                             <div className="content">
 
                                                 <div >
 
-                                                    <button className='logout' onClick={() => dispatch(setUserLogin(false))}  ><FontAwesomeIcon icon={faPowerOff} /> Logout</button>
+                                                    
 
 
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
 
 
@@ -676,7 +676,7 @@ li:hover .mega-box{
 }
 
 .logout{
-    background-color: #e80071;
+     background-color: #e80071;
     color: white;
     padding: 0.5px 14px 0.5px 14px;
     border-radius: 8px;
@@ -685,11 +685,11 @@ li:hover .mega-box{
 
 }
 
-.logout:hover{
-    background-color: #e80071;
-    color: black;
-    border: 2px solid #e80071;
-}
+// .logout:hover{
+//     background-color: #e80071;
+//     color: black;
+//     border: 2px solid #e80071;
+// }
 
 
 
