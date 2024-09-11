@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setUserLogin } from '../Redux/AuthReducer/action'
 import { AddToCart } from './AddToCart'
 // import { Hair } from './categories/Hair'
- 
+
 
 import { setUserNavbar } from '../Redux/AuthReducer/action';
 
@@ -43,56 +43,56 @@ export const Navbar = () => {
     const navigate = useNavigate()
     const navbar = useSelector(store => store.authReducer.navbar)
 
-    
+
 
     const [display, setDisplay] = useState('hidden')
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
-      }
+    }
 
 
-      
-      const handleKeyDown = (e) => {
-        
 
-        if(e.key==='Enter'){
-            if (inputValue == 'shampoo'||inputValue == 'conditioner'||inputValue == 'serum'||inputValue == 'Shampoo'||inputValue == 'Conditioner'||inputValue == 'Serum'||inputValue == 'SHAMPOO'||inputValue == 'CONDITIONER'||inputValue == 'SERUM'||inputValue == 'HAIR'||inputValue == 'hair'||inputValue == 'Hair'||inputValue == 'HAIR SERUM'||inputValue == 'hair serum'||inputValue == 'Hair Serum'||inputValue == 'HAIRSERUM'||inputValue == 'hairserum'||inputValue == 'Hairserum'||inputValue == 'Hair serumm') {
+    const handleKeyDown = (e) => {
+
+
+        if (e.key === 'Enter') {
+            if (inputValue == 'shampoo' || inputValue == 'conditioner' || inputValue == 'serum' || inputValue == 'Shampoo' || inputValue == 'Conditioner' || inputValue == 'Serum' || inputValue == 'SHAMPOO' || inputValue == 'CONDITIONER' || inputValue == 'SERUM' || inputValue == 'HAIR' || inputValue == 'hair' || inputValue == 'Hair' || inputValue == 'HAIR SERUM' || inputValue == 'hair serum' || inputValue == 'Hair Serum' || inputValue == 'HAIRSERUM' || inputValue == 'hairserum' || inputValue == 'Hairserum' || inputValue == 'Hair serumm') {
                 // Redirect to the home page when Enter is pressed
-                
+
                 dispatch(setUserNavbar(true))
                 navigate('/haircare')
-              }
-              else if (inputValue == 'lipstick'||inputValue == 'foundation'||inputValue == 'nailpolish'||inputValue == 'Lipstick'||inputValue == 'Foundation'||inputValue == 'Nailpolish'||inputValue == 'nail polish'||inputValue == 'Nail polish'||inputValue == 'Nail Polish'||inputValue == 'LIPSTICK'||inputValue == 'FOUNDATION'||inputValue == 'NAILPOLISH'||inputValue == 'NAIL POLISH'||inputValue == 'NailPolish'||inputValue == 'makeup'||inputValue == 'Makeup'||inputValue == 'MAKEUP'||inputValue == 'MAKE UP'||inputValue == 'make up'||inputValue == 'Make up'||inputValue == 'Make Up'||inputValue == 'MakeUp') {
-                  // Redirect to the home page when Enter is pressed
-                  dispatch(setUserNavbar(true))
-                  navigate('/makeup')
+            }
+            else if (inputValue == 'lipstick' || inputValue == 'foundation' || inputValue == 'nailpolish' || inputValue == 'Lipstick' || inputValue == 'Foundation' || inputValue == 'Nailpolish' || inputValue == 'nail polish' || inputValue == 'Nail polish' || inputValue == 'Nail Polish' || inputValue == 'LIPSTICK' || inputValue == 'FOUNDATION' || inputValue == 'NAILPOLISH' || inputValue == 'NAIL POLISH' || inputValue == 'NailPolish' || inputValue == 'makeup' || inputValue == 'Makeup' || inputValue == 'MAKEUP' || inputValue == 'MAKE UP' || inputValue == 'make up' || inputValue == 'Make up' || inputValue == 'Make Up' || inputValue == 'MakeUp') {
+                // Redirect to the home page when Enter is pressed
+                dispatch(setUserNavbar(true))
+                navigate('/makeup')
 
-                }
-               else if (inputValue == 'facewash'||inputValue == 'mosturizer'||inputValue == 'serum'||inputValue == 'Facewash'||inputValue == 'Mosturizer'||inputValue == 'Serum'||inputValue == 'Face wash'||inputValue == 'Face Wash'||inputValue == 'FACEWASH'||inputValue == 'MOSTURIZER'||inputValue == 'SERUM'||inputValue == 'FACE WASH'||inputValue == 'cream'||inputValue == 'face cream'||inputValue == 'Face Cream'||inputValue == 'CREAM'||inputValue == 'FACE CREAM'||inputValue == 'Face cream'||inputValue == 'Cream'||inputValue == 'facecare'||inputValue == 'face care'||inputValue == 'face products'||inputValue == 'Face products'||inputValue == 'Face Products'||inputValue == 'FACE PRODUCTS'||inputValue == 'FACEPRODUCTS'||inputValue == 'faceserum'||inputValue == 'face serum'||inputValue == 'Faceserum'||inputValue == 'FACESERUM'||inputValue == 'FACE SERUM'||inputValue == 'Face Serum'||inputValue == 'Face serum') {
-                  // Redirect to the home page when Enter is pressed
-                 dispatch(setUserNavbar(true))
-                  
-                  navigate('/facecare')
-                }else{
-                    alert('Enter valid product')
-                }
+            }
+            else if (inputValue == 'facewash' || inputValue == 'mosturizer' || inputValue == 'serum' || inputValue == 'Facewash' || inputValue == 'Mosturizer' || inputValue == 'Serum' || inputValue == 'Face wash' || inputValue == 'Face Wash' || inputValue == 'FACEWASH' || inputValue == 'MOSTURIZER' || inputValue == 'SERUM' || inputValue == 'FACE WASH' || inputValue == 'cream' || inputValue == 'face cream' || inputValue == 'Face Cream' || inputValue == 'CREAM' || inputValue == 'FACE CREAM' || inputValue == 'Face cream' || inputValue == 'Cream' || inputValue == 'facecare' || inputValue == 'face care' || inputValue == 'face products' || inputValue == 'Face products' || inputValue == 'Face Products' || inputValue == 'FACE PRODUCTS' || inputValue == 'FACEPRODUCTS' || inputValue == 'faceserum' || inputValue == 'face serum' || inputValue == 'Faceserum' || inputValue == 'FACESERUM' || inputValue == 'FACE SERUM' || inputValue == 'Face Serum' || inputValue == 'Face serum') {
+                // Redirect to the home page when Enter is pressed
+                dispatch(setUserNavbar(true))
+
+                navigate('/facecare')
+            } else {
+                alert('Enter valid product')
+            }
         }
-        
-          
-      };
 
-      
+
+    };
+
+
 
     const calculateTotalQuantity = () => {
         let total = 0;
         cartItems.forEach((item) => {
-          total += item.quantity;
+            total += item.quantity;
         });
         return total;
-      };
+    };
 
-      const totalQuantity = calculateTotalQuantity();
+    const totalQuantity = calculateTotalQuantity();
 
 
 
@@ -113,13 +113,13 @@ export const Navbar = () => {
     const handleHover = () => {
         setIsHovered(true)
     }
-    
 
 
-  const handleBag=()=>{
-   userLogin?setDisplay('visible'):alert("Please Login First")
-    
-  }
+
+    const handleBag = () => {
+        userLogin ? setDisplay('visible') : alert("Please Login First")
+
+    }
 
 
 
@@ -155,13 +155,13 @@ export const Navbar = () => {
 
 
                     <ul className='navlinks'>
-                        <li><a style={{ fontSize: "40px", fontWeight: "800", color: "#fc2779" }} onClick={()=>navigate('/')} className='logo' href="#">NYKAA</a></li>
+                        <li><a style={{ fontSize: "40px", fontWeight: "800", color: "#fc2779" }} onClick={() => navigate('/')} className='logo' href="#">NYKAA</a></li>
 
                         <li
                             className="hover-button"
                             onMouseEnter={handleHover}
                         >
-                            <a onClick={()=>navigate('/allproducts')} href="#">Categories</a>
+                            <a onClick={() => navigate('/allproducts')} href="#">Categories</a>
                         </li>
 
                         <li>
@@ -192,14 +192,14 @@ export const Navbar = () => {
                     <div className='inputSection'>
                         <div className='searchDiv'>
                             <i class='bx bx-search-alt-2' ></i>
-                            <input onKeyDown={handleKeyDown}  onChange={handleInputChange} className='search' placeholder='Search on Nykaa' type="text" />
+                            <input onKeyDown={handleKeyDown} onChange={handleInputChange} className='search' placeholder='Search on Nykaa' type="text" />
 
                         </div>
 
                         <div className='signup'>
                             {
                                 !userLogin ? <div>
-                                    <button className='signIn'>Sign in</button>
+                                    <button className='signIn'><FontAwesomeIcon icon={faUser}  /></button>
                                     <div className="mega-box2">
                                         <div className="content">
 
@@ -207,13 +207,13 @@ export const Navbar = () => {
                                                 <header style={{ textAlign: "center" }}>Login / Create Account</header>
                                                 <div>
                                                     <p style={{ opacity: "0.6" }}>Register now and get 2000 Nykaa reward points</p>
-                                                    <button onClick={() => navigate('/login')}>Sign in with Mobile Number</button>
+                                                    <button onClick={() => navigate('/login')}>Sign In</button>
 
                                                 </div>
                                                 <br />
-                                                <div>
+                                                {/* <div>
                                                     <button>Sign in with Google</button>
-                                                </div>
+                                                </div> */}
 
 
                                             </div>
@@ -221,7 +221,7 @@ export const Navbar = () => {
                                     </div>
                                 </div> :
                                     <div className='btn'>
-                                        <button  ><FontAwesomeIcon icon={faUser} />Mihir</button>
+                                        <button  ><FontAwesomeIcon icon={faUser} />User</button>
                                         <div className="mega-box3">
                                             <div className="content">
 
@@ -243,10 +243,10 @@ export const Navbar = () => {
                             <button onClick={handleBag} style={{ fontSize: "25px" }} class='bx bx-shopping-bag' ></button>
                             <div style={{ visibility: `${display}` }} className="mega-box4">
                                 <div className='upper'>
-                                <h2 className='upperPart'><FontAwesomeIcon onClick={()=>setDisplay('hidden')}  style={{marginRight:"13px",cursor:"pointer"}} icon={faArrowLeft} /> Bag</h2><p className='quantity'>{totalQuantity} items</p>
+                                    <h2 className='upperPart'><FontAwesomeIcon onClick={() => setDisplay('hidden')} style={{ marginRight: "13px", cursor: "pointer" }} icon={faArrowLeft} /> Bag</h2><p className='quantity'>{totalQuantity} items</p>
                                 </div>
-                            
-                               <AddToCart />
+
+                                <AddToCart />
 
                             </div>
                         </div>
@@ -258,7 +258,7 @@ export const Navbar = () => {
                 <hr className='hr' />
             </nav>
 
-            
+
 
 
 

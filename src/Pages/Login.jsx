@@ -1,234 +1,167 @@
-// src/components/SignUpWithOtp.js
-import React, { useState, useRef,useEffect } from 'react';
-import firebase from './firebaseConfig';
-import 'firebase/compat/auth';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import styled from '@emotion/styled';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
-import { Navigate, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { setUserLogin } from '../Redux/AuthReducer/action';
+import { useDispatch } from 'react-redux'; // Import useDispatch to dispatch actions
+import { setUserLogin } from '../Redux/AuthReducer/action'; // Import action to update login state
 
-export const Login = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [verificationCode, setVerificationCode] = useState('');
-  const [verificationId, setVerificationId] = useState('');
+const Login = () => {
+  const [isLogin, setIsLogin] = useState(true); // Toggle between login and signup
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [message, setMessage] = useState('');
-  // const [code , setCode] = useState('')
-  // const [mobileNumber, setMobileNumber] = useState('')
-  const recaptchaVerifierRef = useRef(null);
-  const navigate = useNavigate();
-  const [login, setLogin] = useState(false)
-  const [greet, setGreet] = useState('')
-  const [redirect, setRedirect] = useState('')
-  const dispatch = useDispatch()
-  
+  const navigate = useNavigate(); // Hook to programmatically navigate
+  const dispatch = useDispatch(); // Hook to dispatch actions
 
- 
-  
-
-
-  useEffect( ()=>{
-    const fetchData = async ()=>{
-      if(login){
-        try {
-          const response = await axios.post('https://lumina-backend.onrender.com/users/register', {
-            
-            number: phoneNumber
-          })
-         
-          if(response.data.data){
-            setGreet('Welcome back to Nykaa ')
-            
-            
-          }else{
-            setGreet('Welcome to Nykaa')
-            
-          }
-        }catch (error) {
-            setMessage('Error registering user');
-          }
-        
-        }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (isLogin) {
+      // Handle login
+      const storedData = JSON.parse(localStorage.getItem('personalData')) || {};
+      if (storedData.email === email && storedData.password === password) {
+        setMessage('Login Successful');
+        localStorage.setItem('userName', `${storedData.firstName} ${storedData.lastName}`);
+        dispatch(setUserLogin(true)); // Update global state to reflect login
+        navigate('/'); // Redirect to Home page
+      } else {
+        setMessage('Incorrect email or password');
+      }
+    } else {
+      // Handle signup
+      if (firstName === '' || lastName === '' || email === '' || password === '') {
+        setMessage('Please fill in all fields');
+      } else {
+        const userData = { firstName, lastName, email, password };
+        localStorage.setItem('personalData', JSON.stringify(userData));
+        setMessage('Account created successfully! Please log in.');
+        setIsLogin(true);
+      }
     }
-    
-    fetchData()
-   
-  },[message])
-
-
-  useEffect(() => {
-    
-    recaptchaVerifierRef.current = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-      size: 'invisible', 
-    });
-  }, []);
-
-  const handleSendOtp = async () => {
-    // const recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-
-    const recaptchaVerifier = recaptchaVerifierRef.current;
-  
-    // if(message == 'Please Enter the OTP sent to your phone number')
-    
-
-    
-
-    
-    firebase.auth().signInWithPhoneNumber(phoneNumber,recaptchaVerifier)
-      .then(confirmationResult => {
-        setVerificationId(confirmationResult.verificationId);
-        setMessage('Please Enter the OTP sent to your phone number');
-        setLogin(true)
-        setTimeout(() => {
-          setLogin(false)
-        }, 1000)
-      })
-      .catch(error => {
-        setMessage(`Error : Enter the Correct Mobile Number `);
-      });
   };
-
-  const handleVerifyOtp = () => {
-    const credential = firebase.auth.PhoneAuthProvider.credential(verificationId, verificationCode);
-
-    firebase.auth().signInWithCredential(credential)
-      .then(userCredential => {
-        const user = userCredential.user;
-        setRedirect('Redirecting.....')
-        setMessage(`${greet}`);
-        dispatch(setUserLogin(true))
-        setTimeout(() => {
-          navigate(-1)
-        }, 1500)
-        
-        // Now you can navigate to your logged-in page
-      })
-      .catch(error => {
-        setMessage(`Error : Enter the Correct OTP `);
-      });
-  };
-
-  const handlePhoneNumberChange =(value, country)=>{
-  setPhoneNumber(`+${value}`)
-  }
 
   return (
-    <DIV>
-      <div className='login'>
-      <h2>LOGIN / REGISTER</h2>
-      <PhoneInput
-        style={{width:"140px",height:"50px",margin:"20px"}}
-        inputStyle={{height:"50px", border: "1px solid #fc2779"}}
-        inputClass="custom-phone-input"
-        
-        
-        country={'in'}
-        type="tel"
-        
-        value={phoneNumber}
-        onChange={handlePhoneNumberChange}
-        
-        // onChange={e => setPhoneNumber(`${e.target.value}`)}
-
-      />
-      <button  onClick={handleSendOtp}>Send OTP</button>
-      <input
-      className='input'
-        type="text"
-        placeholder="Enter OTP"
-        value={verificationCode}
-        onChange={e => setVerificationCode(e.target.value)}
-        style={{marginTop:"50px"}}
-      />
-      <button style={{paddingLeft:"50px",paddingRight:"50px"}} onClick={handleVerifyOtp}>PROCEED</button>
-      <br />
-      <br />
-      <br />
-      <div style={{opacity:"0.8",color:"#fc2779"}}>{message}</div>
-      <br />
-      <p>{redirect}</p>
-      <br />
-      <br />
-      <p onClick={()=>navigate(-1)} style={{color:"#fc2779",cursor:"pointer"}}>Go Back</p>
-
-      <div id="recaptcha-container"></div>
-      </div>
-      {/* <PhoneInput
-        country={'india'} // Default country
-        value={mobileNumber}
-        onChange={handlePhoneNumberChange}
-      /> */}
-    </DIV>
+    <Container>
+      <LoginForm onSubmit={handleSubmit}>
+        <Title>{isLogin ? 'LOGIN' : 'CREATE ACCOUNT'}</Title>
+        {!isLogin && (
+          <>
+            <Input
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <Input
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </>
+        )}
+        <Input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <SubmitButton type="submit">{isLogin ? 'LOGIN' : 'CREATE'}</SubmitButton>
+        <Toggle>
+          {isLogin ? (
+            <span>Don't have an account? <a href="#" onClick={() => setIsLogin(false)}>Create account</a></span>
+          ) : (
+            <span>Already have an account? <a href="#" onClick={() => setIsLogin(true)}>Login</a></span>
+          )}
+        </Toggle>
+        {message && <Message>{message}</Message>}
+      </LoginForm>
+    </Container>
   );
 };
 
+// Styled-components for styling
+const Container = styled.div`
+  width: 100%;
+  background-color: #f3f3f3;
+  height: 803px;
+  padding-top: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-const DIV = styled.div`
-width: 100%;
-background-color: #f3f3f3;
-height: 803px;
-padding-top: 50px;
-position: relative;
-
-.login{
-  
+const LoginForm = styled.form`
   width: 400px;
-  height: 640px;
+  height: 400px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
-  margin: auto;
-  text-align: center;
   background-color: white;
   padding: 30px;
-  
+  text-align: center;
+`;
 
-}
-.login h2{
+const Title = styled.h2`
   font-size: 20px;
   font-weight: 600;
-  padding-bottom: 40px;
-}
+  padding-bottom: 20px;
+`;
 
-.login .input{
-  
+const Input = styled.input`
   background-color: white;
   border: 1px solid #fc2779;
   width: 300px;
-  padding: 10px 20px 10px 20px;
-  margin: 20px;
+  padding: 10px 20px;
+  margin: 10px;
   height: 50px;
-  border-radius:5px;
+  border-radius: 5px;
+`;
 
-  
-  
-  
-  
-}
-.custom-phone-input::placeholder {
-  color: #999;
-}
- 
-.login button{
-    background-color: #e80071;
-    color: white;
-    padding: 10px 14px 10px 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-}
-.login button:hover{
+const SubmitButton = styled.button`
+  background-color: #e80071;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
     background-color: #861c4d;
-    transition:0.3s;
-    
-}
-.login button:active{
-   background-color: white;
-   color: #e80071;
-   
-   
-}
-  
-`
+    transition: 0.3s;
+  }
 
+  &:active {
+    background-color: white;
+    color: #e80071;
+  }
+`;
+
+const Toggle = styled.div`
+  font-size: 14px;
+
+  a {
+    color: #e80071;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+const Message = styled.p`
+  font-size: 14px;
+  color: red;
+`;
+
+export default Login;
